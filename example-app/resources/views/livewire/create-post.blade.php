@@ -12,7 +12,7 @@
         <x-slot name="content">
             <div class="mb-4 mt-4">
                 <x-label value="Titulo del post"/>
-                <x-input type="text" class="w-full" wire:model="title"/>
+                <x-input type="text" class="w-full" wire:model.defer="title"/>
                 
                 <x-input-error for="title"/>
 
@@ -30,13 +30,14 @@
 
         </x-slot> 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$set('open',false)">
+            <x-secondary-button class="mr-3" wire:click="$set('open',false)">
                 Cancelar
             </x-secondary-button>
 
-            <x-danger-button wire:click="save">
+            <x-danger-button class="mr-3 disabled:opacity-25" wire:click="save" wire:loading.attr="disabled" wire:target="save">
                 Crear post
             </x-danger-button>
+
         </x-slot> 
 
     </x-dialog-modal>
