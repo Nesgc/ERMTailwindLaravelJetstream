@@ -4,17 +4,24 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreatePost extends Component
 {
 
+    use WithFileUploads;
     public $open = true;
 
-    public $title, $content;
+    public $title, $content, $image, $identificador;
+
+    public function mount(){
+        $this->identificador = rand();
+    }
 
     protected $rules = [
         'title' => 'required|max:100',
-        'content' => 'required|min:4',
+        'content' => 'required|min:1',
+        'image' => 'required|image|max:2048',
     ];
 
    
@@ -22,12 +29,17 @@ class CreatePost extends Component
 
         $this->validate();
 
+        $image = $this->image->store('posts');
+
         Post::create([
             'title' => $this->title,
-            'content'=> $this->content
+            'content'=> $this->content,
+            'image' => $image
             ]);
 
-            $this->reset(['open', 'title', 'content']);
+            $this->reset(['open', 'title', 'content','image']);
+
+            $this->identificador = rand();
 
             $this->emitTo('show-unidades','render');
             $this->emit('alert', 'El post se creo satisfactoriamente');
