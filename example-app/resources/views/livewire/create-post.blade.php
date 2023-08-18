@@ -7,20 +7,25 @@
 
         <x-slot name="title">
             Crear nuevo post
+            
         </x-slot>  
         <x-slot name="content">
-           
-            <div class="mb-4">
+            <div class="mb-4 mt-4">
                 <x-label value="Titulo del post"/>
-                <x-input type="text" class="w-full" wire:model.defer="title"/>
+                <x-input type="text" class="w-full" wire:model="title"/>
                 
+                <x-input-error for="title"/>
+
             </div>
+          
 
             <div class="mb-4">
                 <x-label value="Contenido del post"/>
                 
                 <textarea wire:model.defer="content" class="form-control w-full" rows="6"></textarea>
                 
+                <x-input-error for="content"/>
+
             </div>
 
         </x-slot> 

@@ -13,9 +13,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
+        
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -42,5 +44,14 @@
         @stack('modals')
 
         @livewireScripts
+        <script>
+            Livewire.on('alert',function(message){
+                Swal.fire(
+  'Good job!',
+  message,
+  'success'
+)})
+        </script>
+
     </body>
 </html>
