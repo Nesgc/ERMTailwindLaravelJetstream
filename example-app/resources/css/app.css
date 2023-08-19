@@ -1,8 +1,15 @@
+@import 'form.css';
+@import 'buttons.css';
+@import url(buttons.css);
+@import url(form.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import 'form.css';
+
+
+
 
 [x-cloak] {
     display: none;
