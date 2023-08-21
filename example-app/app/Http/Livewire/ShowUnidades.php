@@ -21,7 +21,7 @@ class ShowUnidades extends Component
     public $openedit = false;
 
     protected $queryString = [
-        'cant'
+        'cant', 'sort', 'direction', 'search'
     ];
    
     protected $rules = [
