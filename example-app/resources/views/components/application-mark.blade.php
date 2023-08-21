@@ -1,1 +1,1 @@
-<img class="object-contain h-20 w-18 ml-5" src="../images/images-removebg-preview%20(1).png" >
+<img class="object-contain h-20 w-18 " src="../images/images-removebg-preview%20(1).png" >

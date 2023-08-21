@@ -8,7 +8,20 @@
     <table class="min-w-full divide-y divide-gray-200">
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <div class="px-6 py-4 flex items-center">
-            <x-input class="flex-1 mr-3" type="text" wire:model="search" placeholder="Buscar">
+
+          <div class="flex items-center">
+            <span>Mostrar</span>
+            <select wire:model="cant" class="mx-2 form-control">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+
+            <span class="">Entradas</span>
+          </div>
+
+          <x-input class="flex-1 mx-3" type="text" wire:model="search" placeholder="Buscar">
             </x-input>
 
             @livewire('create-post')
@@ -90,18 +103,18 @@
                   <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
                 </div>
                 <div class="">
-                  <div class=" text-grsay">{{$item->id}}</div>
+                  <div class="text-base text-gray">{{$item->id}}</div>
                 </div>
               </th>
               <td class="px-6 py-4">
                 <span
-                  class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
+                  class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-base font-semibold text-green-600"
                 >
-                  <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
+                  <span class="h-1.5 w-1.5 rounded-full bg-green-600 "></span>
                   {{$item->title}}
                 </span>
               </td>
-              <td class="px-6 py-4">{{$item->content}}</td>
+              <td class="px-6 py-4 text-base">{{$item->content}}</td>
               
               <td class="px-6 py-4">
              {{--  @livewire('edit-post', ['post' => $post], key($post->id)) --}}
@@ -173,10 +186,12 @@
             No existe ningún registro coincidente
         </div>
         @endif
+
+        @if ($posts->hasPages())
 <div class="px-6 py-3">
   {{$posts->links()}}
 </div>
-
+@endif
       </div>
  
       

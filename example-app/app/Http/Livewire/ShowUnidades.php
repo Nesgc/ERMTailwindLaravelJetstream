@@ -17,9 +17,12 @@ class ShowUnidades extends Component
     public $search, $post, $image, $identificador;
     public $sort = 'id';
     public $direction = 'desc';
- 
+    public $cant;
     public $openedit = false;
 
+    protected $queryString = [
+        'cant'
+    ];
    
     protected $rules = [
         'post.title'=> 'required',
@@ -30,6 +33,10 @@ class ShowUnidades extends Component
         $this->identificador = rand();
         $this->post = new Post();
     }
+
+    public function updatingSearch(){
+        $this->resetPage();
+    }
     protected $listeners=['render'];
 
     public function render()
@@ -38,7 +45,7 @@ class ShowUnidades extends Component
     $posts=Post::where('title', 'like','%'. $this->search.'%')
                 ->orWhere('content', 'like','%'. $this->search.'%')
                 ->orderBy($this->sort, $this->direction)
-                ->paginate(10);
+                ->paginate($this->cant);
 
         return view('livewire.show-unidades', compact('posts'));
     }
