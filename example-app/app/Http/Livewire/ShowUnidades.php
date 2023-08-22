@@ -22,6 +22,7 @@ class ShowUnidades extends Component
     public $cant = '10';
     public $readytoLoad = false;
     public $openedit = false;
+    protected $listeners=['render', 'delete'];
 
     protected $queryString = [
         'cant' => ['except' => '10'], 
@@ -43,7 +44,6 @@ class ShowUnidades extends Component
     public function updatingSearch(){
         $this->resetPage();
     }
-    protected $listeners=['render'];
 
     public function render()
     {
@@ -111,6 +111,10 @@ class ShowUnidades extends Component
 
         $this->emit('alert', 'El post se actualizó satisfactoriamente');
 
+
+    }
+    public function delete(Post $post){
+        $post->delete();
     }
 }
 

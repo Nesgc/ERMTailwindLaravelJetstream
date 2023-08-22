@@ -35,9 +35,9 @@
                 <x-input wire:model="post.title" type="text" class="w-full"/>
         </div>
 
-        <div class="mb-4">
-            <x-label value="Contenido del Post"/>
-                <textarea wire:model="post.content" rows="6" class="form-control w-full"></textarea>
+        <div  id="editor" class="mb-4">
+            <x-label  id="editor" value="Contenido del Post"/>
+                <textarea id="editor" wire:model="post.content" rows="6" class="form-control w-full" ></textarea>
         </div>
 
         <div>
@@ -57,5 +57,25 @@
     </x-slot>
 
 </x-dialog-modal>
+@push('js')
+          
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
+    <script>
+        ClassicEditor
+        
+            .create( document.querySelector( '#editor' ) )
+            .then(function(editor){
+                
+
+                editor.model.document.on('change:data', () =>{
+                    @this.set('content', editor.getData());
+                })
+            })
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+    @endpush
 </div>
