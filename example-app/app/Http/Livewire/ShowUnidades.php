@@ -14,14 +14,20 @@ class ShowUnidades extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $search, $post, $image, $identificador;
+    public $post, $image, $identificador;
+
+    public $search = '';
     public $sort = 'id';
     public $direction = 'desc';
-    public $cant;
+    public $cant = '10';
+    public $readytoLoad = false;
     public $openedit = false;
 
     protected $queryString = [
-        'cant', 'sort', 'direction', 'search'
+        'cant' => ['except' => '10'], 
+        'sort' => ['except' => 'id'], 
+        'direction' => ['except' => 'desc'], 
+        'search'  => ['except' => '']
     ];
    
     protected $rules = [
@@ -42,14 +48,28 @@ class ShowUnidades extends Component
     public function render()
     {
 
-    $posts=Post::where('title', 'like','%'. $this->search.'%')
+        if($this->readytoLoad){
+            $posts=Post::where('title', 'like','%'. $this->search.'%')
                 ->orWhere('content', 'like','%'. $this->search.'%')
                 ->orderBy($this->sort, $this->direction)
                 ->paginate($this->cant);
+        }else{
+            $posts=[];
+        }
+
+
+   /* $posts=Post::where('title', 'like','%'. $this->search.'%')
+                ->orWhere('content', 'like','%'. $this->search.'%')
+                ->orderBy($this->sort, $this->direction)
+                ->paginate($this->cant);*/
 
         return view('livewire.show-unidades', compact('posts'));
     }
 
+        public function loadPosts(){
+            $this->readytoLoad = true;
+            
+        }
         public function order($sort){
            if ($this->sort == $sort){
 

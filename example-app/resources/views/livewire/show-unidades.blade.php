@@ -1,4 +1,4 @@
-<div>
+<div wire:init="loadPosts">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Fase de pruebas ') }}
@@ -27,10 +27,10 @@
             @livewire('create-post')
         </div>
 
-        @if ($posts->count())
+        @if (count($posts))
             
         
-        <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+        <table class="w-full border-collapse bg-white text-left text-base text-gray-500">
             
             <thead class="d-flex flex-row bg-gray-50">
           
@@ -87,7 +87,7 @@
             </th>
        
               <th scope="col" class=" px-6 py-4 font-medium text-gray-900"
-              wire:click="order">Edit</th>
+              >Edit</th>
             </tr>
            
           </thead>
@@ -116,14 +116,17 @@
               </td>
               <td class="px-6 py-4 text-base">{{$item->content}}</td>
               
-              <td class="px-6 py-4">
+              <td class="inline-flex items-center gap-3 px-6 py-4">
              {{--  @livewire('edit-post', ['post' => $post], key($post->id)) --}}
                 
                 <a class="btn btn-green" wire:click="edit({{$item}})">
-                  <i class="fas fa-edit">
-                    
-                  </i>
+                  <i class="fas fa-edit"> </i>
               </a>
+
+              <a class="btn btn-red">
+                <i class="fas fa-trash"></i>
+              </a>
+
               </td>
 
             </tr>
@@ -181,28 +184,24 @@
             </x-dialog-modal>
           </tbody>
         </table>
-        @else
-        <div class="px-6 py-4">
-            No existe ningún registro coincidente
+
+        @if ($posts->hasPages())
+        <div class="px-6 py-3">
+          {{$posts->links()}}
         </div>
         @endif
 
-        @if ($posts->hasPages())
-<div class="px-6 py-3">
-  {{$posts->links()}}
-</div>
-@endif
+        @else
+        <div  class="px-6 py-4">
+            <p wire:loading.remove>No existe ningún registro coincidente</p>
+        </div>
+        <div class="flex justify-center">
+          <img wire:loading src="{{asset('https://s11.gifyu.com/images/Sg9fn.gif')}}" class="w-60 p-10">
+   </div>
+        @endif
+
       </div>
  
-      
-   
-
-   
-            
         </table>
     
-
-       
-        
-
       </div>

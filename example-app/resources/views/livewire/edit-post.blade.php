@@ -2,6 +2,8 @@
 
 <div>
    
+
+
     <a class="btn btn-green" wire:click="$set('open', true)">
         <i class="fas fa-edit">
         </i>
@@ -45,11 +47,11 @@
     </x-slot> 
     
     <x-slot name='footer'>
-        <x-secondary-button wire:click="$set('open', false)">
+        <x-secondary-button class="mr-3" wire:click="$set('open', false)">
             Cancelar
         </x-secondary-button>
 
-        <x-danger-button wire:click="save" wire:loading.attr="disabled" class="disabled:opacity-25">
+        <x-danger-button wire:click="save" wire:loading.attr="disabled" class="ml-5 mr-3 disabled:opacity-25">
             Actualizar
         </x-danger-button>
     </x-slot>
