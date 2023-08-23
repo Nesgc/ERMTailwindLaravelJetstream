@@ -51,6 +51,7 @@ class ShowUnidades extends Component
         if($this->readytoLoad){
             $posts=Post::where('title', 'like','%'. $this->search.'%')
                 ->orWhere('content', 'like','%'. $this->search.'%')
+                ->orWhere('id', 'like','%'. $this->search.'%')
                 ->orderBy($this->sort, $this->direction)
                 ->paginate($this->cant);
         }else{

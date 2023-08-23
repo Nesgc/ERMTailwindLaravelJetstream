@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowUnidades;
 use App\Models\Post;
@@ -24,7 +25,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', ShowUnidades::class)->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
 });
 
-
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/solicitudes', ShowUnidades::class)->name('solicitudes');
+});
