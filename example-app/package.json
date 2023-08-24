@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^39.0.1",
-        "sweetalert2": "^11.7.23"
+        "bootstrap": "^3.4.1",
+        "sweetalert2": "^11.6.13"
     }
 }

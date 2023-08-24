@@ -1,21 +1,22 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 ">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20">
-        <div class="flex justify-between h-50">
+    <div class="container-xl mx-auto px-4 px-sm-6 px-lg-8 " style="max-width: 1140px;">
+        <div class="row align-items-center " style="height: 5rem;">
+        <div class="flex justify-between h-50 ">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link class="text-xl" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-decoration-none">
+                    <x-nav-link class="text-xl text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link class="text-xl" href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
+                    <x-nav-link class="text-xl text-decoration-none" href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
                         {{ __('Solicitudes') }}
                     </x-nav-link>
                 </div>
@@ -137,6 +138,7 @@
                 </button>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
