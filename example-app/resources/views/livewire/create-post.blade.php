@@ -1,12 +1,12 @@
 <div>
     <x-danger-button wire:click="$set('open', true)" >
-        Crear nuevo post
+        Crear nueva solicitud
     </x-danger-button>
 
     <x-dialog-modal wire:model="open" >
 
         <x-slot name="title">
-            Crear nuevo post
+            Crear nueva solicitud
             
         </x-slot>  
         <x-slot name="content">
