@@ -19,6 +19,7 @@
                     <x-nav-link class="text-xl text-decoration-none" href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
                         {{ __('Solicitudes') }}
                     </x-nav-link>
+                   
                 </div>
             </div>
 
