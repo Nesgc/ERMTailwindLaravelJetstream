@@ -6,7 +6,7 @@
     <x-dialog-modal wire:model="open" >
 
         <x-slot name="title">
-            Crear nueva solicitudd
+            Crear nueva solicitud
             
         </x-slot>  
         <x-slot name="content">
