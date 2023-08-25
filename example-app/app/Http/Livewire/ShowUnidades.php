@@ -22,6 +22,8 @@ class ShowUnidades extends Component
     public $cant = '10';
     public $readytoLoad = false;
     public $openedit = false;
+
+    public $openview = false;
     protected $listeners=['render', 'delete'];
 
     protected $queryString = [
@@ -93,6 +95,11 @@ class ShowUnidades extends Component
     public function edit(Post $post){
         $this->post = $post;
         $this->openedit = true;
+    }
+
+    public function view(Post $post){
+        $this->post = $post;
+        $this->openview = true;
     }
 
     public function update(){

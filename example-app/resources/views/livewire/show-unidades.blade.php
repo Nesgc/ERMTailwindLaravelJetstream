@@ -11,11 +11,11 @@
 
           <div class="flex items-center">
             <span>Mostrar</span>
-            <select wire:model="cant" class="mx-2 form-control">
-              <option value="10">10</option>
+            <select wire:model="cant" class="form-control px-4 mx-2">
+              <option class="flex items-center" value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
-              <option value="100">100</option>
+              <option class="d-flex justify-content-start" value="100">100</option>
             </select>
 
             <span class="">Entradas</span>
@@ -30,12 +30,12 @@
         @if (count($posts))
             
         
-        <table class="w-full border-collapse bg-white text-left text-base text-gray-500">
+        <table class="w-full border-collapse  bg-white text-left text-base text-gray-500">
             
-            <thead class="d-flex flex-row bg-gray-50">
+            <thead class=" bg-gray-50">
           
             <tr>
-              <th scope="col" class="w-24 cursor-pointer px-6 py-4 font-medium text-gray-900"
+              <th scope="col" class="w-20 cursor-pointer px-6 py-4 font-medium text-gray-900"
               wire:click="order('id')">ID 
               {{--sort--}}
             @if ($sort == 'id')
@@ -51,8 +51,8 @@
             @endif
 
            </th> 
-            <th scope="col" class="flex flex-row cursor-pointer px-6 py-4 font-medium text-gray-900"
-              wire:click="order('title')">TITLE &nbsp
+            <th scope="col" class="w-25 cursor-pointer px-6 py-4 font-medium text-gray-900"
+              wire:click="order('title')">Unidad &nbsp
           
               {{--sort--}}
             @if ($sort == 'title')
@@ -68,7 +68,7 @@
             @endif
 
               <th scope="col" class="cursor-pointer px-6 py-4 font-medium text-gray-900"
-              wire:click="order('content')">CONTENT&nbsp
+              wire:click="order('content')">Solicitud&nbsp
               
               {{--sort--}}
             @if ($sort == 'content')
@@ -86,8 +86,8 @@
             
             </th>
        
-              <th scope="col" class=" px-6 py-4 font-medium text-gray-900"
-              >Edit</th>
+              <th scope="col" class="w-10 px-6 py-4 font-medium text-gray-900"
+              >Editar</th>
             </tr>
            
           </thead>
@@ -119,6 +119,10 @@
               <td class="inline-flex items-center gap-3 px-6 py-4">
              {{--  @livewire('edit-post', ['post' => $post], key($post->id)) --}}
                 
+             <a class="btn btn-blue" wire:click="view({{$item}})">
+              <i class="fa-solid fa-eye"></i>
+          </a>
+
                 <a class="btn btn-green" wire:click="edit({{$item}})">
                   <i class="fas fa-edit"> </i>
               </a>
@@ -182,6 +186,53 @@
                 </x-slot>
             
             </x-dialog-modal>
+
+
+            {{-- MOSTRAR VISTA --}}
+            <x-dialog-modal wire:model='openview'>
+    
+              <x-slot name='title'>
+                  Mirar Post
+              </x-slot>
+          
+              <x-slot name='content'>
+          
+                  <div wire:loading wire:target="image" class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                      <strong class="font-bold">¡Imagen cargando!</strong>
+                      <span class="block sm:inline">Espere un momento hasta que la imagen se haya procesado.</span>
+                      
+                    </div>
+          
+                  @if ($image)
+                  <img class="" height="" src ="{{$image->temporaryUrl()}}">
+                      @else
+                      <img class="" height="" width="" src="{{Storage::url($post->image)}}">
+                  @endif
+          
+                  <div class="mt-4 mb-4">
+                      <x-label class="text-xl" value="Titulo del Post"/>
+                      
+                      <div class="text-base text-gray text-bolder">{{$post->title}}</div>
+                  </div>
+          
+                  <div class="mt-4 mb-4">
+                    <x-label class="text-xl" value="Contenido"/>
+                    
+                    <div class="text-base text-gray text-bolder">{!! $post->content!!}</div>
+                </div>
+        
+                  
+              </x-slot> 
+              
+              <x-slot  name='footer'>
+                  <x-secondary-button wire:click="$set('openview', false)">
+                      Cancelar
+                  </x-secondary-button>
+          
+                 
+              </x-slot>
+          
+          </x-dialog-modal>
           </tbody>
         </table>
 
