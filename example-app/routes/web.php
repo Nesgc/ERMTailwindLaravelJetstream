@@ -17,8 +17,11 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+});*/
+Route::get('/', function () {
+    return view('auth.login');
 });
 
 Route::middleware([
