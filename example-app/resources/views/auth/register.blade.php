@@ -6,21 +6,11 @@
 
         <x-validation-errors class="mb-4" />
 
-<div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Panel de control</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar Sesion</a>
-
-                      
-                    @endauth
-                </div>
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Nombre') }}" />
+                <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
@@ -30,12 +20,12 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Contraseña') }}" />
+                <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -58,11 +48,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('¿Ya estabas registrado?') }}
+                    {{ __('Already registered?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Registrarse') }}
+                    {{ __('Register') }}
                 </x-button>
             </div>
         </form>

@@ -6,18 +6,6 @@
 
         <x-validation-errors class="mb-4" />
 
- <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Panel Administrativo</a>
-                    @else
-                      
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
-                        @endif
-                    @endauth
-                </div>
-
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -33,26 +21,26 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Contraseña') }}" />
+                <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('¿Se te olvido tu contraseña?') }}
+                        {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
                 <x-button class="ml-4">
-                    {{ __('Iniciar Sesion') }}
+                    {{ __('Log in') }}
                 </x-button>
             </div>
         </form>
