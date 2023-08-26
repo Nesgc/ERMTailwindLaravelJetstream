@@ -16,6 +16,9 @@
                     <x-nav-link class="text-xl text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link class="text-xl text-decoration-none" href="{{ route('unidades') }}" :active="request()->routeIs('unidades')">
+                        {{ __('Unidades') }}
+                    </x-nav-link>
                     <x-nav-link class="text-xl text-decoration-none" href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
                         {{ __('Solicitudes') }}
                     </x-nav-link>

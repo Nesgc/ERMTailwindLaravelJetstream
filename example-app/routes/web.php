@@ -4,6 +4,7 @@ use App\Http\Livewire\Dash2;
 use App\Http\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowUnidades;
+use App\Http\Livewire\Unidades;
 use App\Models\Post;
 
 /*
@@ -40,7 +41,13 @@ Route::middleware([
     Route::get('/dash2', Dash2::class)->name('dash2');
 });
 
-
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/unidades', Unidades::class)->name('unidades');
+});
 
 Route::middleware([
     'auth:sanctum',
