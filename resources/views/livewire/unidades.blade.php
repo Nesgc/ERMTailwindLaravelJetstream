@@ -162,12 +162,12 @@
                         <div class="mb-4">
                             <x-label value="Titulo del Post"/>
                             
-                                <x-input wire:model="post.title" type="text" class="w-full"/>
+                                <x-input wire:model="post.econ" type="text" class="w-full"/>
                         </div>
                 
                         <div class="mb-4">
                             <x-label value="Contenido del Post"/>
-                                <textarea wire:model="post.content" rows="6" class="form-control w-full"></textarea>
+                                <textarea wire:model="post.operador" rows="6" class="form-control w-full"></textarea>
                         </div>
                 
                         <div>
@@ -213,13 +213,13 @@
                       <div class="mt-4 mb-4">
                           <x-label class="text-xl" value="Titulo del Post"/>
                           
-                          <div class="text-base text-gray text-bolder">{{$post->title}}</div>
+                          <div class="text-base text-gray text-bolder">{{$post->econ}}</div>
                       </div>
               
                       <div class="mt-4 mb-4">
                         <x-label class="text-xl" value="Contenido"/>
                         
-                        <div class="text-base text-gray text-bolder">{!! $post->content!!}</div>
+                        <div class="text-base text-gray text-bolder">{!! $post->operador!!}</div>
                     </div>
             
                       
