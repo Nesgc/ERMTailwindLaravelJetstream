@@ -1,1 +1,0 @@
-<img class="object-contain h-20 w-18 " src="../images/images-removebg-preview%20(1).png" ><?php /**PATH C:\xampp\htdocs\lara1\example-app\resources\views/components/application-mark.blade.php ENDPATH**/ ?>
