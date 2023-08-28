@@ -37,17 +37,11 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'role:admin'
 ])->group(function () {
     Route::get('/dash2', Dash2::class)->name('dash2');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/unidades', Unidades::class)->name('unidades');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -57,10 +51,45 @@ Route::middleware([
     Route::get('/solicitudes', ShowUnidades::class)->name('solicitudes');
 });
 
-Route::middleware([
+/*Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/dash', ShowUnidades::class)->name('dash');
+});
+*//*
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/unidades', Unidades::class)->name('unidades');
+});
+*/
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/unidades', Unidades::class)->name('unidades');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin/index');
+    })->name('admin.index');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin/index');
+    })->name('admin.index');
 });
