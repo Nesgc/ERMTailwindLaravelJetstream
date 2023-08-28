@@ -17,13 +17,27 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
-        
         @livewireStyles
-
-        @stack('css')
-
+        <style>
+            .loader{
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                padding-top: 23%;
+                padding-left: 45%;
+                background: #333;
+            }
+            </style>
+                @stack('css')
     </head>
     <body class="font-sans antialiased">
+
+        
+    <div class="loader">
+        <img src="{{ asset('img/circles.svg')}}" alt="">
+
+    </div>
+
         <x-banner />
 
         <div class="min-h-screen bg-blue-100 ">
@@ -43,12 +57,20 @@
                 {{ $slot }}
             </main>
         </div>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(function(){
+               setTimeout(() => {
+                   $(".loader").fadeOut(300);
+               }, 200);  // 2000 milliseconds (or 2 seconds) delay
+           });
+       </script>
         @stack('modals')
 
         @livewireScripts
 
         @stack('js')
+        
 
         <script>
             Livewire.on('alert',function(message){
@@ -59,5 +81,6 @@
 )})
         </script>
 
+ 
     </body>
 </html>

@@ -246,9 +246,7 @@
         <div  class="px-6 py-4">
             <p wire:loading.remove>No existe ningún registro coincidente</p>
         </div>
-        <div class="flex justify-center">
-          <img wire:loading src="{{asset('https://s11.gifyu.com/images/Sg9fn.gif')}}" class="w-60 p-10">
-   </div>
+        
         @endif
 
       </div>

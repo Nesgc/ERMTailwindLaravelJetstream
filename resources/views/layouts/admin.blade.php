@@ -19,34 +19,29 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
         
         @livewireStyles
-
-        @stack('css')
-      
-         @section('styles')
 <style>
-    #loading-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
+    .loader{
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 9999;
-        display: flex; /* Change this to "flex" */
-        justify-content: center;
-        align-items: center;
+        position: fixed;
+        padding-top: 23%;
+        padding-left: 45%;
+        background: #333;
     }
-</style>
-@endsection
+    </style>
+        @stack('css')
+      
+        
 
 
     </head>
 <body class="font-sans antialiased">
-<div id="loading-screen" class="loading-screen d-flex justify-content-center align-items-center vh-100">
-    <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+
+    <div class="loader">
+        <img src="{{ asset('img/circles.svg')}}" alt="">
+
     </div>
-</div>
+
 
         <x-banner />
 
@@ -67,22 +62,15 @@
                 {{ $slot }}
             </main>
         </div>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        @stack('modals')
-
-        @livewireScripts
-         @stack('js')
-         @stack('scripts')
-         
-         
-     
-
-@push('head')
-<!-- Styles -->
-<link href="{{ asset('css/load.css') }}" rel="stylesheet">
-<!-- Scripts -->
-<script src="{{ asset('js/load.js')}}"></script>
-@endpush
+<script>
+     $(function(){
+        setTimeout(() => {
+            $(".loader").fadeOut(300);
+        }, 200);  // 2000 milliseconds (or 2 seconds) delay
+    });
+</script>
 
     </body>
 </html>
