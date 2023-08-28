@@ -22,7 +22,12 @@
                     <x-nav-link class="text-xl text-decoration-none" href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
                         {{ __('Solicitudes') }}
                     </x-nav-link>
-                   
+                   @role('admin')
+                    <x-nav-link class="text-xl text-decoration-none" href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
+                        {{ __('Admin') }}
+                    </x-nav-link>
+                    @endrole
+
                 </div>
             </div>
 

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowUnidades;
 use App\Http\Livewire\Unidades;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Jetstream\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,15 @@ use App\Models\Post;
 /* Route::get('/', function () {
     return view('welcome');
 });*/
+
 Route::get('/', function () {
-    return view('auth.login');
+    if (Auth::check()) {
+        return redirect('/dashboard');
+    } else {
+        return view('auth.login');
+    }
 });
+
 
 Route::middleware([
     'auth:sanctum',
@@ -92,4 +100,16 @@ Route::middleware([
     Route::get('/admin', function () {
         return view('admin/index');
     })->name('admin.index');
+});
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:admin'
+])->group(function () {
+    Route::get('/asset2', function () {
+        return view('asset2/index');
+    })->name('asset2.index');
 });
