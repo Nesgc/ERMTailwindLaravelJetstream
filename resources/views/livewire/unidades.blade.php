@@ -69,7 +69,7 @@
                 @endif
     
                   <th scope="col" class="cursor-pointer px-6 py-4 font-medium text-gray-900"
-                  wire:click="order('content')">Solicitud&nbsp
+                  wire:click="order('content')">Operador &nbsp
                   
                   {{--sort--}}
                 @if ($sort == 'content')
@@ -142,7 +142,7 @@
                   <x-dialog-modal wire:model='openedit'>
         
                     <x-slot name='title'>
-                        Editar el post 
+                        Editar la unidad
                     </x-slot>
                 
                     <x-slot name='content'>
@@ -170,10 +170,18 @@
                                 <textarea wire:model="post.operador" rows="6" class="form-control w-full"></textarea>
                         </div>
                 
-                        <div>
-                            <input type="file" wire:model="image" id="{{$identificador}}">
-                            <x-input-error for="image" />
-                        </div>
+                        <div class="d-flex flex-row">
+                          <div>
+                              <p>Selecciona PDF</p>
+                              <input type="file" wire:model="pdf" id="{{$identificador}}">
+                              <x-input-error for="pdf"/>
+                          </div>
+                          <div>
+                              <p>Foto de la unidad</p>
+                              <input type="file" wire:model="image" id="{{$identificador}}">
+                              <x-input-error for="image"/>
+                          </div>
+              </div>
                     </x-slot> 
                     
                     <x-slot  name='footer'>
@@ -193,7 +201,7 @@
                 <x-dialog-modal wire:model='openview'>
         
                   <x-slot name='title'>
-                      Mirar Post
+                      Unidad
                   </x-slot>
               
                   <x-slot name='content'>
@@ -211,18 +219,24 @@
                       @endif
               
                       <div class="mt-4 mb-4">
-                          <x-label class="text-xl" value="Titulo del Post"/>
+                          <x-label class="text-xl" value="Numero de unidad"/>
                           
                           <div class="text-base text-gray text-bolder">{{$post->econ}}</div>
                       </div>
               
                       <div class="mt-4 mb-4">
-                        <x-label class="text-xl" value="Contenido"/>
+                        <x-label class="text-xl" value="Operador"/>
                         
                         <div class="text-base text-gray text-bolder">{!! $post->operador!!}</div>
                     </div>
             
-                      
+                       <!-- New PDF Viewer Section -->
+
+                       <a href="{{Storage::url($post->pdf)}}" target="_blank">
+                        <button class="btn btn-primary">Ver Factura</button>
+                    </a>
+
+
                   </x-slot> 
                   
                   <x-slot  name='footer'>
@@ -287,7 +301,15 @@
              </script>
             @endpush
         
-         
-    
+            @push('js')
+            <script>
+              document.addEventListener('DOMContentLoaded', () => {
+    window.livewire.on('openPdf', data => {
+        window.open(data.url, '_blank');
+    });
+});
+
+            </script>
+    @endpush
           </div>
     

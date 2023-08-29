@@ -14,7 +14,7 @@ class Unidades extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $post, $image, $identificador;
+    public $post, $image, $identificador, $pdf;
 
     public $search = '';
     public $sort = 'id';
@@ -110,10 +110,15 @@ class Unidades extends Component
 
             $this->post->image = $this->image->store('public/units');
         }
+        if ($this->pdf) {
+            Storage::delete([$this->post->pdf]);
+
+            $this->post->pdf = $this->pdf->store('public/pdfs');
+        }
 
         $this->post->save();
 
-        $this->reset(['openedit','image']);
+        $this->reset(['openedit','image', 'pdf']);
 
         $this->identificador = rand();
 
@@ -121,6 +126,14 @@ class Unidades extends Component
 
 
     }
+    public function openPdf()
+{
+    // Generate or find the PDF URL
+    $pdfUrl = 'public/pdfs';
+
+    // Use JavaScript to open the PDF in a new tab
+    $this->dispatchBrowserEvent('openPdf', ['url' => $pdfUrl]);
+}
     public function delete(unit $post){
         $post->delete();
     }

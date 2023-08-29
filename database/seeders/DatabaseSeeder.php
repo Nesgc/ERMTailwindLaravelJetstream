@@ -15,8 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         Storage::makeDirectory('public/posts');
 
-         \App\Models\Post::factory(70)->create();
+         \App\Models\Post::factory(40)->create();
 
+         Storage::makeDirectory('public/units');
+
+         \App\Models\unit::factory(5)->create();
 
          $this->call(RoleSeeder::class);
          $this->call(AdminSeeder::class);

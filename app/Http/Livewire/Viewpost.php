@@ -12,7 +12,7 @@ class Viewpost extends Component
 
     use WithFileUploads;
     public $open = false;
-    public $post, $content, $image, $identificador;
+    public $post, $content, $image, $identificador, $pdf;
 
     protected $rules = [
         'post.title'=> 'required',

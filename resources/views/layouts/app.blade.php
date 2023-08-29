@@ -25,7 +25,7 @@
                 position: fixed;
                 padding-top: 23%;
                 padding-left: 45%;
-                background: #333;
+                background: #e64c4c;
             }
             </style>
                 @stack('css')
@@ -34,7 +34,7 @@
 
         
     <div class="loader">
-        <img src="{{ asset('img/circles.svg')}}" alt="">
+        <img src="{{ asset('img/grid.svg')}}" alt="">
 
     </div>
 

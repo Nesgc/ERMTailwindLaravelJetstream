@@ -1,12 +1,12 @@
 <div>
     <x-danger-button wire:click="$set('open', true)" >
-        Crear nueva solicitud
+        Agregar nueva unidad
     </x-danger-button>
 
     <x-dialog-modal wire:model="open" >
 
         <x-slot name="title">
-            Crear nueva solicitud
+            Agregar nueva unidad
             
         </x-slot>  
         <x-slot name="content">
@@ -23,7 +23,7 @@
             @endif
 
             <div class="mb-4 mt-4">
-                <x-label value="Titulo del post"/>
+                <x-label value="Numero de la unidad"/>
                 <x-input type="text" class="w-full" wire:model.defer="econ"/>
                 
                 <x-input-error for="econ"/>
@@ -32,19 +32,33 @@
           
 
             <div class="mb-4" wire:ignore>
-                <x-label value="Contenido del post"/>
+                <x-label value="Operador de la unidad"/>
                 
                 <textarea id="editor" wire:model.defer="operador" class="form-control w-full" rows="6"></textarea>
 
                 <x-input-error for="operador"/>
 
             </div>
+<div class="d-flex flex-row">
+    <div class="mb-3">
+        <label for="{{$identificador}}" class="form-label">Factura PDF</label>
+        <input type="file" class="form-control" wire:model="pdf" id="{{$identificador}}">
+        <x-input-error for="pdf" class="invalid-feedback"/>
+    </div>
 
-            <div>
-                <input type="file" wire:model="image" id="{{$identificador}}">
-                <x-input-error for="image"/>
-            </div>
 
+            
+
+
+            
+</div>
+<div class="d-flex flex-row">
+<div class="mb-3">
+    <label for="{{$identificador}}" class="form-label">Foto de la unidad</label>
+    <input type="file" class="form-control" wire:model="image" id="{{$identificador}}">
+    <x-input-error for="image" class="invalid-feedback"/>
+</div>
+</div>
         </x-slot> 
         <x-slot name="footer">
             <x-secondary-button class="mr-3" wire:click="$set('open',false)">
@@ -52,7 +66,7 @@
             </x-secondary-button>
 
             <x-danger-button  wire:click="save" wire:loading.attr="disabled" wire:target="save, image" class="mr-3 disabled:opacity-25">
-                Crear post
+                Agregar Unidad
             </x-danger-button>
 
         </x-slot> 
