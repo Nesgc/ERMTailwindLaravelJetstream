@@ -19,7 +19,7 @@
                   <option class="d-flex justify-content-start" value="100">100</option>
                 </select>
     
-                <span class="">Entradas</span>
+                <span class="">Unidades</span>
               </div>
     
               <x-input class="flex-1 mx-3" type="text" wire:model="search" placeholder="Buscar">

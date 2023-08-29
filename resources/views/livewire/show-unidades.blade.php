@@ -4,8 +4,9 @@
             {{ __('Fase de pruebas ') }}
         </h2>
     </x-slot>
-    
-    <table class="min-w-full divide-y divide-gray-200">
+
+    <x-table1>
+
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <div class="px-6 py-4 flex items-center">
 
@@ -18,7 +19,7 @@
               <option class="d-flex justify-content-start" value="100">100</option>
             </select>
 
-            <span class="">Entradas</span>
+            <span class="">Solicitudes</span>
           </div>
 
           <x-input class="flex-1 mx-3" type="text" wire:model="search" placeholder="Buscar">
@@ -251,7 +252,7 @@
 
       </div>
  
-        </table>
+      </x-table>
 
         @push('js')
           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"> </script>
