@@ -31,6 +31,7 @@ class unitFactory extends Factory
             'operador' => $this->faker->text(),
             'image' => $image,
             'pdf' => $image,
+            'factura' => $image,
 
         ];
     }

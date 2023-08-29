@@ -12,7 +12,7 @@ class CreateUnit extends Component
     use WithFileUploads;
     public $open = false;
 
-    public $econ, $operador, $image, $pdf, $identificador;
+    public $econ, $operador, $image, $pdf, $factura, $identificador;
 
     public function mount(){
         $this->identificador = rand();
@@ -22,6 +22,7 @@ class CreateUnit extends Component
         'econ' => 'required|max:100',
         'operador' => 'required|min:1',
         'image' => 'required|image|max:4048',
+        'factura' => 'required|file|mimes:pdf|max:10240', 
         'pdf' => 'required|file|mimes:pdf|max:10240', // max 10MB
 
     ];
@@ -33,16 +34,18 @@ class CreateUnit extends Component
 
         $image = $this->image->store('public/units');
         $pdf = $this->pdf->store('public/pdfs');
+        $factura = $this->factura->store('public/pdfs/facturas');
 
 
         unit::create([
             'econ' => $this->econ,
             'operador'=> $this->operador,
             'image' => $image,
+            'factura' => $factura,
             'pdf' => $pdf,
             ]);
 
-            $this->reset(['open', 'econ', 'operador','image', 'pdf']);
+            $this->reset(['open', 'econ', 'operador','image', 'pdf', 'factura']);
 
             $this->identificador = rand();
 

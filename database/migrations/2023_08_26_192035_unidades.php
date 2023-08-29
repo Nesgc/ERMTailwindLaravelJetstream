@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('econ');
             $table->string('operador');
             $table->string('image');
+            $table->string('factura');
             $table->string('pdf');
 
             $table->timestamps();

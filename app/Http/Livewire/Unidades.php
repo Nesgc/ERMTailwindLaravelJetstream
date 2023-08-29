@@ -116,9 +116,16 @@ class Unidades extends Component
             $this->post->pdf = $this->pdf->store('public/pdfs');
         }
 
+        if ($this->factura) {
+            Storage::delete([$this->post->factura]);
+
+            $this->post->pdf = $this->factura->store('public/pdfs/facturas');
+        }
+
+
         $this->post->save();
 
-        $this->reset(['openedit','image', 'pdf']);
+        $this->reset(['openedit','image', 'pdf', 'factura']);
 
         $this->identificador = rand();
 
