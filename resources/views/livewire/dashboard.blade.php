@@ -1,8 +1,3 @@
-<div id=".dashboardComponent" style="display:block;">
-<div>
-    @if ($isLoading)
-        Loading...
-    @else
 <div>
     <html lang="en">
         <head>
@@ -17,7 +12,7 @@
         <body class="sb-nav-fixed">
      
         <div id="layoutSidenav">
-         s
+         
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -83,9 +78,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -598,44 +590,7 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
-
-
-        @livewireScripts
-
-       @stack('modals')
-
-
-        @stack('js')
-        
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        setTimeout(() => {
-            $('.dashboardComponent').fadeIn();
-        }, 4000); // 2 seconds delay
-
-
-        $(function(){
-               setTimeout(() => {
-                   $(".dashboardComponent").fadeIn(300);
-               }, 200); 
-    });
-</script>
-    @livewireScripts
-
-       @stack('modals')
-
-
-        @stack('js')
-        
         </body>
     </html>
     
 </div>
-
- @endif
-</div>
-
-</div>
-
-
