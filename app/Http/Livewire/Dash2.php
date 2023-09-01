@@ -8,6 +8,7 @@ class Dash2 extends Component
 {
     public function render()
     {
-        return view('livewire.dash2');
+        return view('livewire.dash2')
+        ->layout('layouts.admin');
     }
 }

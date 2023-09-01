@@ -37,7 +37,7 @@
           
             <tr>
               <th scope="col" class="w-20 cursor-pointer px-6 py-4 font-medium text-gray-900"
-              wire:click="order('id')">ID 
+              wire:click="order('id')">Solicitud
               {{--sort--}}
             @if ($sort == 'id')
               @if ($direction == 'desc')
@@ -99,13 +99,10 @@
             
             <tr class="hover:bg-gray-50">
               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                <div class="relative h-10 w-10">
-                  <img src="{{Storage::url($item->image)}}">
-                  <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                <div>
+                Solicitud: &nbsp
                 </div>
-                <div class="">
                   <div class="text-base text-gray">{{$item->id}}</div>
-                </div>
               </th>
               <td class="px-6 py-4">
                 <span
