@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\Dash2;
-use App\Http\Livewire\Dash3;
 use App\Http\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowUnidades;
@@ -113,25 +112,4 @@ Route::middleware([
     Route::get('/asset2', function () {
         return view('asset2/index');
     })->name('asset2.index');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-    'role:admin'
-])->group(function () {
-    Route::get('/dashboard3', Dash3::class)->name('dash3');
-});
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-    'role:admin'
-])->group(function () {
-    Route::get('/dash31', function () {
-        return view('admin/dash31');
-    })->name('admin.dash31');
 });
