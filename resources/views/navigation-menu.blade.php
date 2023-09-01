@@ -4,43 +4,6 @@
         <div class="row align-items-center " style="height: 5rem;">
         <div class="flex justify-between h-50 ">
             <div class="flex">
-
-                <!-- sidebar -->
-                <div class="sidebar" id="sidebar">
-                    <div class="sidebar-inner slimscroll">
-                        <div id="sidebar-menu" class="sidebar-menu">
-                            <ul>
-                                <li class="menu-title">
-                                    <span>Main</span>
-                                </li>
-                                <li class="submenu">
-                                    <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a >Admin Dashboard</a></li>
-                                    </ul>
-                                </li>
-                
-                                <li class="submenu">
-                                    <a href="#"><i class="la la-object-group"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a >Form Input</a></li>
-                                        <li><a>Form Radio</a></li>
-                                        <li><a >Form Checkbox</a></li>
-                                        <li><a >Form Upload File</a></li>
-                                    </ul>
-                                </li>
-                                <li class="submenu">
-                                    <a href="#"><i class="la la-pie-chart"></i> <span> Page View </span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a >Report Form Input</a></li>
-                                        <li><a >Report Form Upload File</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}">
