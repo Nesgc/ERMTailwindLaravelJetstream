@@ -4,6 +4,7 @@
         <div class="row align-items-center " style="height: 5rem;">
         <div class="flex justify-between h-50 ">
             <div class="flex">
+                
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}">

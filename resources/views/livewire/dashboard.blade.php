@@ -1,3 +1,4 @@
+@extends('layouts.theme.app')
 <div>
     <html lang="en">
         <head>

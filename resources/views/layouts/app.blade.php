@@ -16,8 +16,11 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
+        @include('layouts.theme.styles')
         @livewireStyles
+        
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
+        
         <style>
             .loader{
                 width: 100%;
@@ -28,11 +31,13 @@
                 background: #e64c4c;
             }
             </style>
-                @stack('css')
     </head>
-    <body class="font-sans antialiased">
+    <body id="page-top">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            @include('layouts.theme.sidebar')
 
-        
+
     <div class="loader">
         <img src="{{ asset('img/grid.svg')}}" alt="">
 
@@ -41,22 +46,32 @@
         <x-banner />
 
         <div class="min-h-screen bg-blue-100 ">
-            @livewire('navigation-menu')
-
+            
+                 
+          
+        
             <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
+            @include('layouts.theme.header')
             <!-- Page Content -->
-            <main>
+            <div class="d-flex flex-row">
+                
+            
+            </nav></div>
+            <div><main>
                 {{ $slot }}
-            </main>
+            </main></div></div>
         </div>
+              <div class="mt-4">
+                    @include('layouts.theme.footer')
+                </div>
+        </div></div>
+    </div>
+</div>
+</div>
+         <!-- Scripts -->
+    @include('layouts.theme.scripts')
+    @livewireScripts
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             $(function(){
@@ -67,8 +82,7 @@
        </script>
         @stack('modals')
 
-        @livewireScripts
-
+      
         @stack('js')
         
 

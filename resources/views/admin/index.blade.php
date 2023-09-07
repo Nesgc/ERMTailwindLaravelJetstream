@@ -1,4 +1,7 @@
-<x-admin-layout>
+@extends('layouts.theme.app')
+
+
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
             {{ __('Fase de pruebas') }}
@@ -12,4 +15,4 @@
         
         </div>
     </div>
-</x-admin-layout>
+
