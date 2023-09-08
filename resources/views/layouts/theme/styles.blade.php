@@ -1,39 +1,19 @@
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon.ico"/>
+    <link href="../layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
+    <script src="../layouts/vertical-light-menu/loader.js"></script>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="../src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../layouts/vertical-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
 
-<!-- Custom styles for this template-->
-<link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="../src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
+    <link href="../src/assets/css/light/components/list-group.css" rel="stylesheet" type="text/css">
+    <link href="../src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
 
-    <style>
-        aside{
-            display: none!important;
-
-        }
-        .page-item.active .page-link{
-            z-index:3;
-            color: #fff;
-            background-color:#01579b ;
-            border-color:#01579b;
-     }
-        @media (max-widht: 480px)
-        {
-            .mtmobile {
-                margin-bottom: 20px!important;
-            }
-            .mbmobile {
-                margin-bottom: 10px!important;
-            }
-            .hideonsm{
-                display :none !important;
-            }
-            .inblock {
-                display: block;
-            }
-        }
-
-        
-    </style>
-
-
+    <link href="../src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
+    <link href="../src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->

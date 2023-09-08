@@ -1,30 +1,15 @@
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="../src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../src/plugins/src/mousetrap/mousetrap.min.js"></script>
+    <script src="../src/plugins/src/waves/waves.min.js"></script>
+    <script src="../layouts/vertical-light-menu/app.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
-
-
-<script src="js/custom.js"></script>
-<script src="js/sweetalert2.all.min.js"></script>
-
-<script src="js/sweetalerts/sweetalert.min.js"></script>
-<script src="js/snackbar.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/custom.js"></script>
-
-
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="../src/plugins/src/apex/apexcharts.min.js"></script>
+    <script src="../src/assets/js/dashboard/dash_2.js"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
 
 <script>

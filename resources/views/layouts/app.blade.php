@@ -22,85 +22,61 @@
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css') }}">
 
     <style>
-   .wrapper {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
+  
 
-.sidebar {
-  flex-grow: 1;
-}
-
-        .loader {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            padding-top: 23%;
-            padding-left: 45%;
-            background: #e64c4c;
-        }
+      
     </style>
     @stack('css')
 </head>
-
-<body id="page-top">
-    <div class="loader">
-        <img src="{{ asset('img/grid.svg') }}" alt="">
-
-    </div>
+<body class="layout-boxed">
 
 
-    <div id="wrapper">
+   <div id="load_screen"> <div class="loader"> <div class="loader-content">
+        <div class="spinner-grow align-self-center"></div>
+    </div></div></div>
+
+
+    
 
 
 
         <!-- Sidebar -->
 
-
-
-
-
         @include('layouts.theme.sidebar')
+        
         <!-- Page Heading -->
 
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-
+       
                 @include('layouts.theme.header')
 
+ <div class="main-container " id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
 
 
                 <!-- Page Content -->
-                <div class="layout-px-spacing">
+        <div id="content" class="main-content">
+
                     {{ $slot }}
                 </div>
 
-
-                <div class="mt-4">
-                    @include('layouts.theme.footer')
-                </div>
-            </div>
-
-        </div>
+ </div>
+                
     </div>
+        <!--  END CONTENT AREA  -->
 
+    </div>
+    <!-- END MAIN CONTAINER -->
+      
     @include('layouts.theme.scripts')
     @livewireScripts
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(function() {
-            setTimeout(() => {
-                $(".loader").fadeOut(300);
-            }, 200); // 2000 milliseconds (or 2 seconds) delay
-        });
-    </script>
+    
     @stack('modals')
 
 
-
-    @stack('js')
 
 
     <script>
