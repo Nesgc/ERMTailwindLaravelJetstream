@@ -45,10 +45,22 @@
             @endif
 
             <!-- Page Content -->
+            <div>
+            <div class="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <!-- Add more items here -->
+                </ul>
+            </div>
+            <div>
             <main>
             
             {{$slot}}
             </main>
+        </div>
+        </div>
         </div>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

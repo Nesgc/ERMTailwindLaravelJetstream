@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
 
+=======
+<head>
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+<<<<<<< HEAD
 
     <title>Sales system</title>
 
@@ -66,13 +71,39 @@
     <!-- End of Page Wrapper -->
    
     <!-- Scroll to Top Button-->
+=======
+    <title>Sales system</title>
+    @include('layouts.theme.styles')
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        @include('layouts.theme.sidebar')
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                @include('layouts.theme.header')
+                <div class="layout-px-spacing">
+                    <!-- This is where the content will be injected -->
+                    @yield('content')
+                </div>
+                <div class="mt-4">
+                    @include('layouts.theme.footer')
+                </div>
+            </div>
+        </div>
+    </div>
+
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
+<<<<<<< HEAD
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
+=======
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,8 +121,14 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Bootstrap core JavaScript-->
   @include('layouts.theme.scripts')
 </body>
 
 </html>
+=======
+    @include('layouts.theme.scripts')
+</body>
+</html>
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b

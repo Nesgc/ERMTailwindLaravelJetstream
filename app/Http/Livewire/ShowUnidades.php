@@ -66,7 +66,8 @@ class ShowUnidades extends Component
                 ->orderBy($this->sort, $this->direction)
                 ->paginate($this->cant);*/
 
-        return view('livewire.show-unidades', compact('posts'));
+        return view('livewire.show-unidades', compact('posts'))
+        ;
     }
 
         public function loadPosts(){

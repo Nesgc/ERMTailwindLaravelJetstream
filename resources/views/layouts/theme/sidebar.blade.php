@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <div class="wrapper" id="wrapper" style="height: 100%;">
 
   <nav>
   <ul class="bg-gradient-primary sidebar sidebar-dark" id="" style="height: 100%;">
 
+=======
+<div class="sidebar-wrapper sidebar-theme">
+<nav id="compactSidebar">
+
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -17,9 +25,17 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
+<<<<<<< HEAD
         <a class="nav-link" href="index.html">
            <i class="fa fa-user" aria-hidden="true"></i>
             <span>DASHBOARD</span></a>
+=======
+        <a class="nav-link text-xl text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>DASHBOARD</span>
+        </a>
+        
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
@@ -53,7 +69,11 @@
     </li>
 <li class="nav-item active">
         <a class="nav-link" href="index.html">
+<<<<<<< HEAD
             <i class="fas fa-fw fa-tachometer-alt"></i>
+=======
+            <i class="fas fa-fw fa-user-alt"></i>
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
             <span>USERS</span></a>
     </li>
 <li class="nav-item active">
@@ -116,9 +136,14 @@
         </div>
     </li>
 
+<<<<<<< HEAD
      <!-- Spacer -->
       <div class="flex-grow-1"></div>
 
+=======
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+>>>>>>> 8d7cf948bf2caab1970dfa5c3714bdb1e0d71d9b
 
     <!-- Heading -->
     <div class="sidebar-heading">
