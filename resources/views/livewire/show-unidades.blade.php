@@ -1,6 +1,4 @@
-@extends('layouts.theme.app')
 
-@section('content')
 <div wire:init="loadPosts">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -10,7 +8,7 @@
 
     <x-table1>
 
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div class=" rounded-lg border border-gray-200 shadow-md m-5">
         <div class="px-6 py-4 flex items-center">
 
           <div class="flex items-center">
@@ -288,4 +286,3 @@
      
 
       </div>
-      @endsection

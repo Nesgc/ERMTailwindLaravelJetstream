@@ -1,25 +1,30 @@
 
     <div wire:init="loadPosts">
-        
-        
-        <table class="min-w-full divide-y divide-gray-200">
-        <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-            <div class="px-6 py-4 flex items-center">
+         <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Fase de pruebas ') }}
+        </h2>
+    </x-slot>
+
+       
+     <div class="table-responsive rounded-lg border m-5 shadow">
+     
+        <div class=" p-3">
+            <div class="d-flex align-items-center">
     
               <div class="flex items-center">
                 <span>Mostrar</span>
-                <select wire:model="cant" class="form-control px-4 mx-2">
+                <select wire:model="cant" class="form-control mx-2">
                   <option class="flex items-center" value="10">10</option>
                   <option value="25">25</option>
                   <option value="50">50</option>
-                  <option class="d-flex justify-content-start" value="100">100</option>
+                  <option class="" value="100">100</option>
                 </select>
     
                 <span class="">Unidades</span>
               </div>
     
-              <x-input class="flex-1 mx-3" type="text" wire:model="search" placeholder="Buscar">
-                </x-input>
+            <input type="text" class="form-control mx-3 flex-grow-1" wire:model="search" placeholder="Buscar">
     
                 @livewire('create-unit')
             </div>
@@ -48,7 +53,7 @@
                 @endif
     
                </th> 
-                <th scope="col" class="w-25 cursor-pointer px-6 py-4 font-medium text-gray-900"
+                <th scope="col" class="cursor-pointer px-6 py-4 font-medium text-gray-900"
                   wire:click="order('title')">Unidad &nbsp
               
                   {{--sort--}}
@@ -83,7 +88,7 @@
                 
                 </th>
            
-                  <th scope="col" class="w-10 px-6 py-4 font-medium text-gray-900"
+                  <th scope="col" class=" px-6 py-4 font-medium text-gray-900"
                   >Editar</th>
                 </tr>
                
@@ -194,7 +199,8 @@
     
     
                 {{-- MOSTRAR VISTA --}}
-                <x-dialog-modal wire:model='openview'>
+                
+                <x-dialog-modal class="mt-6" wire:model='openview'>
         
                   <x-slot name='title'>
                       Unidad
