@@ -1,86 +1,119 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>FGS test</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>FGS test</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css')}}">
-        @livewireStyles
-        <style>
-            .loader{
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                padding-top: 23%;
-                padding-left: 45%;
-                background: #e64c4c;
-            }
-            </style>
-                @stack('css')
-    </head>
-    <body class="font-sans antialiased">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        
+    <!-- Styles -->
+    @include('layouts.theme.styles')
+    @livewireStyles
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6.4.2-web/css/all.min.css') }}">
+
+    <style>
+   .wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.sidebar {
+  flex-grow: 1;
+}
+
+        .loader {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            padding-top: 23%;
+            padding-left: 45%;
+            background: #e64c4c;
+        }
+    </style>
+    @stack('css')
+</head>
+
+<body id="page-top">
     <div class="loader">
-        <img src="{{ asset('img/grid.svg')}}" alt="">
+        <img src="{{ asset('img/grid.svg') }}" alt="">
 
     </div>
 
-        <x-banner />
 
-        <div class="min-h-screen bg-blue-100 ">
-            @livewire('navigation-menu')
+    <div id="wrapper">
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+
+        <!-- Sidebar -->
+
+
+
+
+
+        @include('layouts.theme.sidebar')
+        <!-- Page Heading -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                @include('layouts.theme.header')
+
+
+
+                <!-- Page Content -->
+                <div class="layout-px-spacing">
+                    {{ $slot }}
+                </div>
+
+
+                <div class="mt-4">
+                    @include('layouts.theme.footer')
+                </div>
+            </div>
+
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(function(){
-               setTimeout(() => {
-                   $(".loader").fadeOut(300);
-               }, 200);  // 2000 milliseconds (or 2 seconds) delay
-           });
-       </script>
-        @stack('modals')
+    </div>
 
-        @livewireScripts
+    @include('layouts.theme.scripts')
+    @livewireScripts
 
-        @stack('js')
-        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            setTimeout(() => {
+                $(".loader").fadeOut(300);
+            }, 200); // 2000 milliseconds (or 2 seconds) delay
+        });
+    </script>
+    @stack('modals')
 
-        <script>
-            Livewire.on('alert',function(message){
-                Swal.fire(
-  'Good job!',
-  message,
-  'success'
-)})
-        </script>
 
- 
-    </body>
+
+    @stack('js')
+
+
+    <script>
+        Livewire.on('alert', function(message) {
+            Swal.fire(
+                'Good job!',
+                message,
+                'success'
+            )
+        })
+    </script>
+
+
+</body>
+
 </html>
