@@ -895,16 +895,7 @@
 
         </div>
         <!--  END SIDEBAR  -->
-        
-        <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content"> 
-        
-            <div class="layout-px-spacing">
-
-                <div class="mt-4 middle-content container-xxl p-0">
-{{ $slot }}
-                    <!--  BEGIN BREADCRUMBS  -->
-                    <div class="secondary-nav">
+               <div class="secondary-nav">
                         <div class="breadcrumbs-container" data-page-heading="Sales">
                             <header class="header navbar navbar-expand-sm">
                                 <a href="javascript:void(0);" class="btn-toggle sidebarCollapse" data-placement="bottom">
@@ -963,6 +954,15 @@
                             </header>
                         </div>
                     </div>
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content"> 
+        
+            <div class="layout-px-spacing">
+
+                <div class="mt-4 middle-content container-xxl p-0">
+{{ $slot }}
+                    <!--  BEGIN BREADCRUMBS  -->
+             
                     <!--  END BREADCRUMBS  -->                    
 
                  

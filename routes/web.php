@@ -113,3 +113,14 @@ Route::middleware([
         return view('asset2/index');
     })->name('asset2.index');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+    
+])->group(function () {
+    Route::get('admin/welcome', function () {
+        return view('admin/welcome');
+    })->name('welcome');
+});

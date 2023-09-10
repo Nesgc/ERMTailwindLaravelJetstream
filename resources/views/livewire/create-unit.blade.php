@@ -3,7 +3,7 @@
         Agregar nueva unidad
     </x-danger-button>
 
-    <x-dialog-modal wire:model="open" >
+    <x-dialog-modalboot wire:model="open" >
 
         <x-slot name="title">
             Agregar nueva unidad
@@ -97,7 +97,7 @@
 
         </x-slot> 
 
-    </x-dialog-modal>
+    </x-dialog-modalboot>
 
     {{--  
         @push('js')
